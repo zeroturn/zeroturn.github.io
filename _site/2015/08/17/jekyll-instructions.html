@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Your New Jekyll Site - Blogging about stuffs</title>
+    <meta name="description" content="Your New Jekyll Site, Blogging about stuffs" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400" />
+    <!-- Customisation  -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+
+</head>
+<body class="post-template">
+
+    <header class="main-header post-head no-cover">
+    <nav class="main-nav  clearfix">
+        <a class="back-button icon-arrow-left" href="/">Home</a>
+        <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Jekyll Instructions</h1>
+            <section class="post-meta">                
+                <time class="post-date" datetime="2015-08-17">17 Aug 2015</time>
+                
+            </section>
+        </header>
+
+<!--         <header class="post-header">
+            <a id="blog-logo" href="blog url">
+                
+                    <span class="blog-title">Your New Jekyll Site</span>
+                 
+            </a>
+        </header> -->
+        
+        <!-- <span class="post-meta">
+            <time datetime="2015-08-17">17 Aug 2015</time>
+            
+        </span> -->
+
+        <!-- <h1 class="post-title">Jekyll Instructions</h1> -->
+
+        <section class="post-content">
+            <h3>Fire-up Kasper Locally</h3>
+
+<p>Kasper is a port of Ghost&#39;s Casper theme to Jekyll.  The advantages to me of this approach are:</p>
+
+<ul>
+<li>It uses Ghost&#39;s Casper theme, which I really like</li>
+<li>It produces <em>static</em> pages stored in the _posts subdirectory which are easily backed up and managed rather than a database</li>
+<li>It is suitable for deployment on github pages using Jekyll</li>
+</ul>
+
+<p>Kasper is already installed on this Mac. Further instructions for using it can be found by loading it up.  (I have a page of instructions.)
+Follow these instructions to access it:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt; cd ~/jekyll/kasper
+&gt; jekyll serve --watch
+</code></pre></div>
+<p>If there is an error, you might be prompted to <code>jekyll build</code> and start again.  If so, then <code>jekyll build</code>.</p>
+
+<p>The <code>--watch</code> option autogenerates the static html so that you do not have to constantly rebuild.</p>
+
+<p>The default port is 4000.  If you want to change the server port, use the <code>--port</code> option, e.g., <code>jekyll serve --watch --port 4001</code></p>
+
+<h4>Add Disqus Comments &amp; Google Analytics</h4>
+
+<p>You can add disqus comments by adding you disqus shortname in _includes/disqus.html and google analytics to your blog by adding your blog&#39;s ID in _config.yml. Its not required but you might want to include those two files in .gitignore. See this <a href="From:%20%5Blink%5D(http://sahilshekhawat.me/sahilshekhawat/tech/blog/2015/05/04/build-a-blog-with-jekyll-and-github-pages.html)">link</a>.</p>
+
+<h3>Steps to get Kasper up and running on Github Pages</h3>
+
+<ul>
+<li>Fork the Kasper theme <a href="https://github.com/rosario/kasper">rosario/kasper</a></li>
+<li>Rename your new repository as <strong>GithubUserName</strong>.<em>github.io</em></li>
+<li>You can access your new website at <code>http://githubusername.github.io</code></li>
+<li>Create a new subdirectory to hold your local files</li>
+</ul>
+
+<p>Then</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&gt; cd myNewDir
+&gt; gem install jekyll
+&gt; git init
+&gt; git add .
+&gt; git commit -m &quot;initial commit&quot;
+&gt; git remote add origin YourNewGitRepository
+&gt; git push -u origin master
+</code></pre></div>
+<p>Whenever you add or edit files, push them again.</p>
+
+<h3>Alternative: Clone Kasper and Install Jekyll</h3>
+
+<p>I was able to get pages to be served on github pages, BUT I was unable to get the Kasper theme applied to them.  I am not sure why.  (But this method involved a <strong>clone</strong> of the Kasper project rather than a <strong>fork</strong>.  That might be the problem.)  But I am including these instructions <em>just in case</em>.  See this <a href="http://www.jaridmargolin.com/why-i-decided-to-use-jekyll.html">link</a>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">$ git clone https://github.com/rosario/kasper.git
+$ cd kasper
+$ gem install jekyll
+$ jekyll serve --watch --port 4001
+</code></pre></div>
+<h3>Some notes on Jekyll</h3>
+
+<p>The posts (which are <em>static</em> pages) reside in the _posts subdirectory.  They carry a <code>*.markdown</code> extension and are converted to html by the Jekyll &quot;engine.&quot;</p>
+
+<p><strong>The posts must have the *layout block</strong>*.
+The layout block looks like this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">---
+layout: post
+title:  &quot;A test page&quot;
+date:   2015-08-17 10:18:00
+categories: Comedy
+---
+</code></pre></div>
+<p>The layout references a template in the _layouts folder.</p>
+
+<p>The categories, date and title will form the route to the file (and a subdirectory structure on the local machine).  The category is not necessary.  I do not think the <em>time</em> (as opposed to <em>date</em>) is necessary.</p>
+
+<p>The date may be necessary (at least for the Kasper implementation).  The site is still &quot;blog-like&quot; and the page routes (and subdirectory structure) are based on a <em>blog</em> format.  I think that Kasper <strong>requires</strong> that my file name start with a date (because of its blog origins).  The only exception to that is for the creation of <em>static top-level</em> pages (see below).</p>
+
+<p>Each listed category will be part of the URL (see below).  The category may be blank. In the URL the category <strong>precedes</strong> the name of the file.  Further, the naming convention is to hypenate the file name, like so:</p>
+
+<ul>
+<li>YYYY-MM-DD/cat1/cat2/cat3 etc/Name-of-page.markdown</li>
+</ul>
+
+<p>Thus, for example, the <strong>link</strong> for the page described by the layout block above would be:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">http://localhost:4001/comedy/2015/08/17/A-test-page.html
+</code></pre></div>
+<p>If there were more categories, each category would beincluded in the route as indicated above.</p>
+
+<h4>Static top-level pages</h4>
+
+<p>You can add pages (e.g., an &quot;about&quot; page) to the &quot;top level&quot; by placing them in the top-level directory.  I believe you will have to restart the server so that the html file based on that markdown file will be created.  The html file will be created and stored in the _site subdirectory.  </p>
+
+<p><em>(I have not tried it, but it is probably possible simply to store the exported html to the _site subdirectory.  The markdown can be exported to html by previewing the markdown in the browser and then saving the file as html to the appropriate subdirectory.)</em></p>
+
+<h4>Page Footer</h4>
+
+<p>Edit _layouts/post.html to change the page footer.</p>
+
+<h4>Page Header</h4>
+
+<p>The <strong>Home</strong> link on each page still points to the &quot;blog&quot; style home page.  I may be able to change that by adapting the instructions that I found to do that with the Ghost blog.  That remains to be seen.</p>
+
+<p>Note the following code at the top of _layouts/post.html:</p>
+<div class="highlight"><pre><code class="language-handlebars" data-lang="handlebars"><span class="x">&lt;header class=&quot;main-header post-head no-cover&quot;&gt;</span>
+<span class="x">    &lt;nav class=&quot;main-nav  clearfix&quot;&gt;</span>
+<span class="x">        &lt;a class=&quot;back-button icon-arrow-left&quot; href=&quot;/&quot;&gt;Home&lt;/a&gt;</span>
+<span class="x">        &lt;a class=&quot;subscribe-button icon-feed&quot; href=&quot;/rss.xml&quot;&gt;Subscribe&lt;/a&gt;</span>
+<span class="x">    &lt;/nav&gt;</span>
+<span class="x">&lt;/header&gt;</span>
+</code></pre></div>
+<p>The home url is defined as &quot;/&quot; using the variable <code>site.baseurl</code>.  I should be able to redefine <code>site.baseurl</code> much as I did with the Ghost fix.  </p>
+
+<p>(When previewed with the markdown previewer in TextMate, the above code does not appear exactly as it does in the source of this page.  However, when viewed with the Sublime Text markdown previewer, it does appear exactly as above.  If it does not appear in the previewer being used, it is because the referenced variables <em>have been evaluated</em>, so the variable <code>site.baseurl</code> does not appear in the previewed code.  Rather, what appears in the code is its value, namely, <code>&quot;/&quot;</code>.  To see the <code>site.baseurl</code> variable (which is what will need to be properly set), you would need to look either at the source of this page, or the source of the page _layouts/post.html.)</p>
+
+<h4>Hyperlink with anchor</h4>
+
+<p>I made this link with an anchor tag:  Test <a href="#alternative-clone-kasper-and-install-jekyll">link</a> (with anchor).  The jump to the anchor works when the markdown is <em>previewed</em> (with the Sublime Text markdown previewer) but not when the page is served from Github pages.  I suppose git flavored markdown does not recognize the anchor.  (This could still be accomplished with <em>raw</em> html.)</p>
+
+<hr>
+
+<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/mojombo/jekyll">Jekyll&#39;s GitHub repo</a>.</p>
+
+        </section>
+
+        
+
+        <footer class="post-footer">
+            <!-- If we want to display author's name and bio -->
+            
+                <figure class="author-image">
+                    <a class="img" href="/" style="background-image: url(/assets/images/profile.png)">
+                    <span class="hidden">Your Name's Picture</span></a>
+                </figure>
+                <section class="author">
+                    <!-- Author Name -->
+                    <h4> Your Name </h4>
+                    <!-- Author Bio -->
+                    <p> 
+                        Here goes the author description. You might want to place some links too in here
+                    </p>
+                </section>                
+            
+
+            <!-- Share links section -->
+            <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?text=Jekyll Instructions&amp;url=http://yourblog-domain.com/2015/08/17/jekyll-instructions.html"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://yourblog-domain.com/2015/08/17/jekyll-instructions.html"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://yourblog-domain.com/2015/08/17/jekyll-instructions.html"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+            
+            <!-- Disqus comments -->
+            
+            
+        </footer>
+
+    </article>
+
+</main>
+
+    <footer class="site-footer clearfix">
+      <section class="copyright">
+        <a href="/">Your New Jekyll Site</a> &copy; 
+               &bull; All rights reserved.
+      </section>
+      <section class="poweredby">Made with Jekyll using 
+        <a href="http://github.com/rosario/kasper">Kasper theme</a>
+      </section>
+    </footer>
+    
+    <script type="text/javascript" src="/assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Google Analytics Tracking code -->
+    <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>   
+</body>
+</html>
