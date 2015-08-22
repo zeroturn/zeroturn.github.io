@@ -1,4 +1,9 @@
-Binary Numbers
+---
+layout: page
+title:  "Binary Numbers"
+date:   2015-08-22
+categories: 
+---
 
 Let's face it, doesn't it irritate you that computer systems use binary numbers?  Really?  Why not use the decimal system like everyone else?
 
