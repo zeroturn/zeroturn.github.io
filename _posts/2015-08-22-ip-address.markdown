@@ -1,4 +1,9 @@
-IP Address
+---
+layout: post
+title:  "IP Address"
+date:   2015-08-22
+categories: 
+---
 
 ##### IPv4 - Dotted Decimal Notation
 Computer-to-computer communication (i.e., networking) requires two very basic things:
