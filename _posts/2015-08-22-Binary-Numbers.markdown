@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: post
 title:  "Binary Numbers"
 date:   2015-08-22
 categories: 
